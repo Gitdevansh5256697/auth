@@ -151,6 +151,22 @@
       "password": "five",
       "number": "5555555555",
       "gender": "female"
+    },
+    {
+      "id": "six",
+      "name": "six",
+      "email": "six@gmail.com",
+      "password": "six",
+      "number": "9074759715",
+      "gender": "female"
+    },
+    {
+      "id": "devansh",
+      "name": "devansh",
+      "email": "devansh@gmail.com",
+      "password": "devansh",
+      "number": "9074759744",
+      "gender": "male"
     }
   ]
 }

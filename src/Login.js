@@ -9,11 +9,12 @@ function Login() {
 
   const navigate = useNavigate()
 
+  // using useEffects for clearing a Storage//
 useEffect(()=>{
 sessionStorage.clear();
 },[])
 
-
+// Login Button and Validation//
   const ProceedLogin = (e) => {
     e.preventDefault()
     if (validate()) {
@@ -69,22 +70,24 @@ sessionStorage.clear();
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">Login account</h2>
 
+                    {/* Starting Form Inputs*/}
+
                     <form onSubmit={ProceedLogin} className="container">
 
-
+                    {/* username Inputs */}
 
                       <div className="form-outline mb-4">
                         <input value={username} onChange={e => usernameupdate(e.target.value)}   className="form-control form-control-lg" placeholder='UserName' />
 
                       </div>
-
+                      {/* password */}
                       <div className="form-outline mb-4">
                         <input value={password} onChange={e => passwordupdate(e.target.value)} type="password" id="form3Example4cg" className="form-control form-control-lg" placeholder='password' />
 
                       </div>
 
 
-
+                        {/* Button For Login */}
 
                       <div className="d-flex justify-content-center">
                         <button type="submit"

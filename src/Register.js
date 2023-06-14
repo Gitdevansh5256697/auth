@@ -12,7 +12,7 @@ function Register() {
 
 const navigate=useNavigate();
 
-
+// Validation// and Used Regex in Email and Phone Number
 const IsValidate=()=>{
   let isproceed=true;
   let errormessage='Please enter the value in';
@@ -55,7 +55,7 @@ if(!isproceed){
 if(!isproceed){
   toast.warning(errormessage)
 }else{
-  if(/^[+]?(\d{1,2})?[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(number)){
+  if(/^[0-9]{10}$/.test(number)){
 
   }else{
       isproceed = false; 
@@ -65,7 +65,7 @@ if(!isproceed){
   return isproceed
 }
 
-
+// HandleSubmit//
   const handlesubmit = (e) => {
     if(IsValidate()){
     e.preventDefault()
@@ -125,6 +125,7 @@ if(!isproceed){
                         placeholder='Your Name' />
                     </div>
 
+                    {/* Email */}
                     <div className="form-outline mb-4">
                       <input 
                       name="email" 
@@ -135,6 +136,7 @@ if(!isproceed){
                       placeholder='Your Email' />
                     </div>
 
+                    {/* password */}
                     <div className="form-outline mb-4">
                       <input 
                       name="password" 
@@ -145,6 +147,7 @@ if(!isproceed){
                       placeholder='Password' />
                     </div>
 
+                    {/* number */}
                     <div className="form-outline mb-4">
                       <input 
                       name="number" 
@@ -155,7 +158,7 @@ if(!isproceed){
                       placeholder='Phone Number' />
                     </div>
 
-                   
+                    {/* Gender */}
                         <div className="d-flex justify-content-sm-between">
                           <label>Gender</label>
                           {/* <br></br> */}
@@ -180,7 +183,7 @@ if(!isproceed){
                           <label>female</label>
                           </div>
                          
-
+                      {/* Button */}
                     <div className="d-flex justify-content-center mt-5">
                       <button type="submit"
                         className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>

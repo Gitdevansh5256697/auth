@@ -4,6 +4,9 @@ import Home from './Home'
 import Login from './Login';
 import Register from './Register';
 import { ToastContainer } from 'react-toastify';
+
+
+// Perform All Routing Here//
 function App() {
   return (
     <div className="App">

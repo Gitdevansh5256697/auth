@@ -10,6 +10,44 @@ function Register() {
   const [number, setNumber] = useState("");
   const [gender, genderchange] = useState("female");
 
+  //Phone Number Validation
+const [numberError, setNumberError] = useState('');
+const validateNumber = (number) => {
+  const re = /^\d{10}$/;
+  return re.test(number);
+};
+const handleNumberChange = (e) => {
+  const newNumber = e.target.value;
+  setNumber(newNumber);
+
+  if (!validateNumber(newNumber)) {
+    setNumberError('Please enter a 10-digit integer number.');
+  } else {
+    setNumberError('');
+  }
+};
+
+  // Email Validation Notifacation  
+const [emailError, setEmailError] = useState('');
+
+const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+};
+
+//using handleEmailChange for wrong email Suggetion 
+const handleEmailChange = (e) => {
+  const newEmail = e.target.value;
+  setEmail(newEmail);
+
+  if (!validateEmail(newEmail)) {
+    setEmailError('Please enter a valid email.');
+  } else {
+    setEmailError('');
+  }
+};
+
+// Email Validation Notifacation
 const navigate=useNavigate();
 
 // Validation// and Used Regex in Email and Phone Number
@@ -130,10 +168,14 @@ if(!isproceed){
                       <input 
                       name="email" 
                       value={email} 
-                      onChange={(e) => setEmail(e.target.value)} 
+                      onChange={(e) => {setEmail(e.target.value)
+                        handleEmailChange(e);
+
+                      }} 
                       type="email" 
                       className="form-control form-control-lg" 
                       placeholder='Your Email' />
+                      {emailError && <div style={{ color: 'red', }}>{emailError}</div>}
                     </div>
 
                     {/* password */}
@@ -152,10 +194,13 @@ if(!isproceed){
                       <input 
                       name="number" 
                       value={number} 
-                      onChange={(e) => setNumber(e.target.value)} 
+                      onChange={(e) => {setNumber(e.target.value)
+                        handleNumberChange(e) 
+                      }} 
                       type="phone" 
                       className="form-control form-control-lg" 
                       placeholder='Phone Number' />
+                        {numberError && <div style={{ color: 'red' }}>{numberError}</div>}
                     </div>
 
                     {/* Gender */}
